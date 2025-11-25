@@ -1,0 +1,38 @@
+<?php
+/**	op-module-public_html-onepiece:/content/mypage/index.phtml
+ *
+ * @created   2025-11-25
+ * @version   1.0
+ * @package   op-module-public_html-onepiece
+ * @author    Tomoaki Nagahara
+ * @copyright Tomoaki Nagahara All rights reserved.
+ */
+
+/**	Declare strict type
+ *
+ */
+declare(strict_types=1);
+
+/**	Namespace
+ *
+ */
+namespace OP;
+
+/* @var $login \OP\UNIT\Login */
+$login = OP()->Unit('Login');
+$info  = $login->Info();
+
+?>
+<section>
+	<h1>Profile</h1>
+	<table>
+		<tr>
+			<th>account id</th>
+			<td><?= $info['ai'] ?></td>
+		</tr>
+		<tr>
+			<th>account name</th>
+			<td><?= $info['account'] ?></td>
+		</tr>
+	</table>
+</section>
