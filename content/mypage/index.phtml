@@ -18,11 +18,32 @@ declare(strict_types=1);
  */
 namespace OP;
 
+//	...
+OP()->Unit()->WebPack()->Auto('asset:/webpack/css/float.css');
+
 /* @var $login \OP\UNIT\Login */
 $login = OP()->Unit('Login');
-$info  = $login->Info();
+
+//	...
+if( OP()->Request('logout') ){
+	if( $login->Logout() ){
+		OP()->Html('Logout successful.','.success');
+	}else{
+		OP()->Html('Logout failed.','.fail');
+	}
+	return;
+}
+
+//	...
+$info = $login->Info();
 
 ?>
+<!-- Logout -->
+<aside>
+	<a href="?logout=1" class="float right">Logout</a>
+</aside>
+
+<!-- Profile -->
 <section>
 	<h1>Profile</h1>
 	<table>
